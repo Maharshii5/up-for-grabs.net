@@ -57,7 +57,7 @@ GEM
     google-protobuf (4.29.3-x86_64-linux)
       bigdecimal
       rake (>= 13)
-    graphql (2.4.11)
+    graphql (2.4.16)
       base64
       fiber-storage
       logger
@@ -107,7 +107,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.6)
+    logger (1.7.0)
     mercenary (0.4.0)
     minitest (5.25.4)
     net-http (0.6.0)
@@ -197,7 +197,7 @@ PLATFORMS
 
 DEPENDENCIES
   csv
-  graphql (~> 2.4.11)
+  graphql (~> 2.4.16)
   graphql-client
   jekyll
   json_schemer
