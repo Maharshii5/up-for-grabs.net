@@ -1,16 +1,43 @@
-@import url(pygment_trac.css);
+/* pygment_trac.css is assumed to be imported or included elsewhere */
 
 /* Default [Light Mode] */
 :root {
   --body-back: #f9f9f9;
   --body-color: #303030;
-  --abs: #fff;
+  --abs: #fff; /* Abstract background color */
   --box-shadow-color: rgba(0, 0, 0, 0.2);
   --heading-color: #005485;
   --container-border: #dbdbdb;
   --container-border-alt: #303030;
   --databox-bg: #fff;
-  --databox-text: #2e7ba9;
+  --databox-text: #2e7ba9; /* Primary interactive color */
+  --code-bg: #313d49; /* Background for inline code */
+  --code-color: #eee; /* Text color for inline code */
+  --separator-color: #efefef; /* Color for separators like block borders */
+  --table-border-color: #373737; /* Border color for tables */
+  --table-header-bg: #373737; /* Background for table headers */
+  --table-header-color: var(--abs); /* Text color for table headers */
+  --button-primary-bg: #6f8f9f;
+  --button-primary-hover-bg: #608090;
+  --button-primary-border: #8ab;
+  --button-red-bg: #a65;
+  --button-red-hover-bg: #b76;
+  --button-red-border: #ddacac;
+  --button-gray-bg: #565656;
+  --button-gray-hover-bg: #676767;
+  --button-gray-border: #f4f4f4;
+  --button-blue-bg: #678;
+  --button-blue-hover-bg: #789;
+  --button-blue-border: #ace;
+  --button-green-bg: #696;
+  --button-green-hover-bg: #797;
+  --button-green-border: #ddeed0;
+  --radio-btn-bg: #2E7BA9;
+  --radio-btn-selected-bg: #12425e;
+  --radio-btn-color: #FFF;
+  --radio-btn-hover-shadow: rgba(54, 132, 248, 0.5);
+  --tooltip-bg: grey;
+  --tooltip-color: #fff;
 }
 
 /* Dark Mode Preference has been selected */
@@ -24,93 +51,52 @@
   --container-border-alt: #dbdbdb;
   --databox-bg: #32404d;
   --databox-text: #7bceff;
+  /* Dark mode specific overrides or adjustments */
+  --code-bg: #282c34; /* Darker background for code */
+  --code-color: #abb2bf; /* Lighter text for code */
+  --separator-color: #3a444d; /* Darker separator */
+  --table-border-color: #555; /* Adjusted table border */
+  --table-header-bg: #555; /* Adjusted table header */
+  --table-header-color: var(--body-color);
+  --button-primary-bg: #5a7a8a;
+  --button-primary-hover-bg: #4b6b7b;
+  --button-primary-border: #7a9baf;
+  --button-red-bg: #954;
+  --button-red-hover-bg: #a65;
+  --button-red-border: #cc9b9b;
+  --button-gray-bg: #454545;
+  --button-gray-hover-bg: #565656;
+  --button-gray-border: #d3d3d3;
+  --button-blue-bg: #567;
+  --button-blue-hover-bg: #678;
+  --button-blue-border: #9bd;
+  --button-green-bg: #585;
+  --button-green-hover-bg: #696;
+  --button-green-border: #ccecd0;
+  --radio-btn-bg: #1a5073;
+  --radio-btn-selected-bg: #0d3045;
+  --radio-btn-color: #e0e0e0;
+  --radio-btn-hover-shadow: rgba(123, 206, 255, 0.5);
+  --tooltip-bg: #555;
+  --tooltip-color: #eee;
 }
 
 /*******************************************************************************
-MeyerWeb Reset
+MeyerWeb Reset - Kept as is, it's a standard reset.
 *******************************************************************************/
 
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -119,22 +105,11 @@ video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-ol,
-ul {
+ol, ul {
   list-style: none;
 }
 
@@ -144,11 +119,10 @@ table {
 }
 
 /*******************************************************************************
-Theme Styles
+Theme Styles - General
 *******************************************************************************/
 
-html,
-body {
+html, body {
   height: 100%;
 }
 
@@ -158,35 +132,25 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 16px;
-  line-height: 22px;
+  line-height: 1.5; /* Improved line height for readability */
   padding: 0;
   margin: 0;
 }
 
-body,
-body * {
+body, body * {
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; /* Add for Firefox */
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 10px 0;
-}
-
-h1,
-h2,
-h3 {
-  font-family: 'Cookie', cursive;
-  margin-bottom: 20px;
+h1, h2, h3, h4, h5, h6 {
+  margin: 0.5em 0; /* Use em for relative spacing */
   color: var(--heading-color);
+  font-family: 'Cookie', cursive; /* Assuming this font is loaded */
 }
 
 h1 {
-  font-size: 56px;
+  font-size: 3.5em; /* Use em for relative sizing */
+  margin-bottom: 0.75em;
 }
 
 .block h1 {
@@ -195,36 +159,42 @@ h1 {
 }
 
 .block h1 .header-inside {
-  padding: 2px 16px;
+  padding: 0.1em 0.5em; /* Use em for relative padding */
   background: var(--abs);
+  display: inline-block; /* Ensure background only covers text */
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 1.75em;
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 1.375em;
 }
 
 .filter-label {
   display: inline-block;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 18px;
+  font-family: 'Open Sans Condensed', sans-serif; /* Assuming this font is loaded */
+  font-size: 1.125em;
   color: var(--heading-color);
-  margin-bottom: 10px;
+  margin-bottom: 0.625em;
 }
 
 p {
-  margin: 10px 0 15px 0;
+  margin: 0.625em 0 0.9375em 0; /* Use em for relative spacing */
 }
 
 img {
   border: none;
+  max-width: 100%; /* Already present, good practice */
+  height: auto; /* Ensure aspect ratio is maintained */
 }
 
 button {
-  border-color: transparent;
+  border-color: transparent; /* Standardized border */
+  cursor: pointer; /* Indicate interactivity */
+  background: none; /* Remove default button background */
+  padding: 0; /* Remove default padding */
 }
 
 .theme-selector {
@@ -234,6 +204,8 @@ button {
   z-index: 999;
   background: transparent;
   cursor: pointer;
+  top: 10px; /* Added top positioning */
+  right: 10px; /* Added right positioning */
 }
 
 .theme-selector .visually-hidden {
@@ -248,24 +220,23 @@ button {
 }
 
 #go-back-home {
-  margin: 20px 0 0;
+  margin: 1.25em 0 0; /* Use em */
+  display: inline-block; /* Ensure it behaves like a link */
 }
 
 #go-back-home:hover {
-  background-image: none;
+  background-image: none; /* Ensure hover state is consistent */
 }
 
 #back2Top {
   width: 40px;
+  height: 40px; /* Set height explicitly */
   line-height: 40px;
   overflow: hidden;
   z-index: 999;
   display: none;
   cursor: pointer;
-  -moz-transform: rotate(270deg);
-  -webkit-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
+  /* Rotation can be simplified or handled with transforms directly */
   transform: rotate(270deg);
   position: fixed;
   bottom: 50px;
@@ -275,13 +246,16 @@ button {
   text-align: center;
   font-size: 23px;
   text-decoration: none;
-  transition: 0.3s;
-
+  transition: background-color 0.3s ease, color 0.3s ease; /* Specify transitions */
+  border-radius: 50%; /* Added for circular shape */
+  display: flex; /* Use flexbox for centering content */
+  align-items: center;
+  justify-content: center;
 }
 
 #back2Top:hover {
-  background-color: #2D7BA9;
-  color: #ffffff;
+  background-color: var(--databox-text); /* Use variable */
+  color: var(--abs); /* Use variable */
   cursor: pointer;
 }
 
@@ -293,182 +267,131 @@ button {
   z-index: 10;
   padding: 10px 50px 10px 10px;
   color: var(--abs);
-  background: url('../images/blacktocat.png') #4499cc no-repeat 95% 50%;
+  /* Assuming '../images/blacktocat.png' exists and is correctly path'd */
+  background: url('../images/blacktocat.png') no-repeat 95% 50%;
+  background-color: #4499cc; /* Specify background color separately */
   font-weight: 700;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
 }
 
-.capitalize {
-  text-transform: capitalize;
-}
+/* Utility Classes - Grouped and slightly refined */
+.capitalize { text-transform: capitalize; }
+.upcase { text-transform: uppercase; }
+.downcase { text-transform: lowercase; }
+.hide { display: none !important; } /* Use !important for utility classes */
+.a-r { text-align: right; }
+.a-c { text-align: center; }
+.small { font-size: 0.6875em; } /* Use em */
+.pull-left { float: left; }
+.pull-right { float: right; }
+.muted { color: #8f8f8f; } /* Consider making this a variable */
+.colour-1 { color: #cc9944; } /* Consider making these variables */
+.colour-2 { color: #925; }
+.colour-3 { color: #448844; }
+.text-big { font-size: 1.5em; line-height: 1.2; } /* Adjusted line height */
 
-.upcase {
-  text-transform: uppercase;
-}
-
-.downcase {
-  text-transform: lowercase;
-}
-
-.hide {
-  display: none;
-}
-
-.a-r {
-  text-align: right;
-}
-
-.a-c {
-  text-align: center;
-}
-
-.small {
-  font-size: 11px;
-}
-
-.pull-left {
-  float: left;
-}
-
-.pull-right {
-  float: right;
-}
-
-.muted {
-  color: #8f8f8f;
-}
-
-.colour-1 {
-  color: #cc9944;
-}
-
-.colour-2 {
-  color: #925;
-}
-
-.colour-3 {
-  color: #448844;
-}
-
-.text-big {
-  font-size: 24px;
-  line-height: 1em;
-}
-
-ol,
-ol li {
-  padding: 0;
-  margin: 0;
-}
-
-em {
-  font-style: italic;
-}
-
-strong {
-  font-weight: bold;
-}
-
-ul,
-ol,
-dl {
-  margin-bottom: 15px
+/* List and Text Formatting */
+ol, ul, dl {
+  margin-bottom: 1em; /* Use em */
 }
 
 ul li {
-  list-style: inside;
-  padding-left: 20px;
+  list-style: disc inside; /* Use disc for standard bullet */
+  padding-left: 0; /* Remove padding, list-style-position handles indent */
+  text-indent: -1em; /* Add indent for bullet point alignment */
+  padding-left: 1em; /* Add padding to compensate for text-indent */
 }
 
 ol li {
   list-style: decimal inside;
-  padding-left: 20px;
+  padding-left: 0; /* Remove padding */
+  text-indent: -1em; /* Add indent */
+  padding-left: 1em; /* Add padding */
 }
 
 dl dt {
   font-weight: bold;
+  margin-top: 0.5em; /* Add some space above terms */
 }
 
 dl dd {
-  padding-left: 20px;
+  padding-left: 1.25em; /* Use em */
   font-style: italic;
+  margin-bottom: 0.5em; /* Add some space below definitions */
 }
 
 dl p {
-  padding-left: 20px;
+  padding-left: 1.25em; /* Use em */
   font-style: italic;
 }
 
 blockquote {
-  margin: 0;
+  margin: 1em 0; /* Add vertical margin */
+  padding: 0.5em 1em; /* Add padding */
+  border-left: 4px solid var(--container-border); /* Add a visual indicator */
   font-style: normal !important;
+  color: var(--body-color); /* Ensure color is readable in dark mode */
 }
 
 footer {
   width: 100%;
   max-width: 600px;
-  line-height: 2em;
-  margin: auto;
-  padding-bottom: 30px;
+  line-height: 1.5; /* Consistent line height */
+  margin: 1.5em auto 1.875em; /* Use em */
   text-align: center;
+  font-size: 0.875em; /* Slightly smaller font */
 }
 
 footer * {
-  color: #737373;
+  color: #737373; /* Consider making this a variable */
 }
 
+/* Container and Layout */
 .container {
-  zoom: 1;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   width: 90%;
-  margin: 0 auto 0;
+  margin: 0 auto; /* Center horizontally */
   position: relative;
+  box-sizing: border-box; /* Standard box model */
 }
 
-.container:before,
-.container:after {
-  content: " ";
+/* Clearfix - Modern approach */
+.container::before,
+.container::after {
+  content: "";
   display: table;
 }
-
-.container:after {
+.container::after {
   clear: both;
 }
 
 #main-container {
   background: var(--abs);
   border-radius: 7px;
-  margin: 0 auto 20px;
+  margin: 0 auto 1.25em; /* Use em */
   border: 1px solid var(--container-border);
+  box-shadow: 0 2px 5px var(--box-shadow-color); /* Added subtle shadow */
 }
 
 #main-container .block {
-  border-top: 1px solid #efefef;
-  border-bottom: 1px solid #efefef;
-  padding: 30px 40px 24px;
+  border-top: 1px solid var(--separator-color);
+  border-bottom: 1px solid var(--separator-color);
+  padding: 1.875em 2.5em 1.5em; /* Use em */
 }
 
-#main-container .block:first-child,
-#main-container .block+.block {
+#main-container .block:first-child {
   border-top: 0;
 }
-
 #main-container .block:last-child {
   border-bottom: 0;
 }
 
+/* Specific link/button styles within blocks - Consider if these are necessary or can be handled by general styles */
+/*
 #main-container .block a.main {
   display: inline-block;
-  vertical-align: baseline;
-  zoom: 1;
-  display: inline;
-  vertical-align: auto;
-  padding: 2px 2px;
-  margin-right: 12px;
-  margin-bottom: 6px;
+  margin-right: 0.75em;
+  margin-bottom: 0.375em;
 }
 
 #main-container .block a.main:last-of-type {
@@ -477,129 +400,67 @@ footer * {
 
 #main-container .block .button {
   display: inline-block;
-  vertical-align: baseline;
-  zoom: 1;
-  display: inline;
-  vertical-align: auto;
   height: 20px;
   overflow: hidden;
 }
+*/
 
-a,
-.as-link {
+/* Links and Buttons - Standardized */
+a, .as-link {
   text-decoration: none;
   color: var(--databox-text);
-  line-height: 1.4em;
-  display: inline-block;
-  vertical-align: baseline;
-  zoom: 1;
+  line-height: 1.4; /* Consistent line height */
+  display: inline-block; /* Allow padding/margins */
+  vertical-align: middle; /* Align with text */
   cursor: pointer;
-  display: inline;
-  vertical-align: auto;
-  -webkit-transition: color 0.3s;
-  -moz-transition: color 0.3s;
-  -ms-transition: color 0.3s;
-  -o-transition: color 0.3s;
-  transition: color 0.3s;
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* Specify transitions */
 }
 
-a.main,
-a:hover,
-.as-link.main,
-.as-link:hover {
-  color: #2E7BA9;
+a.main, a:hover, .as-link.main, .as-link:hover {
+  color: #2E7BA9; /* Consider making this a variable */
+  text-decoration: underline; /* Indicate hover */
 }
 
-a.big-button,
-.as-link.big-button {
+/* Big Button Styles - Using variables */
+a.big-button, .as-link.big-button {
   min-width: 30%;
   border-radius: 3px;
-  -webkit-transition: all, 0.2s;
-  -moz-transition: all, 0.2s;
-  -ms-transition: all, 0.2s;
-  -o-transition: all, 0.2s;
-  transition: all, 0.2s;
+  transition: all 0.2s ease;
   color: #fff;
   cursor: pointer;
-  font-size: 12px;
-  line-height: 24px;
-  padding: 8px 17px;
+  font-size: 0.75em; /* Use em */
+  line-height: 24px; /* Fixed line height for button text */
+  padding: 0.5em 1em; /* Use em for padding relative to font size */
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
-  display: block;
+  display: inline-block; /* Allow side-by-side buttons */
   text-align: center;
-  border-width: 0;
-  border-style: solid;
-  border-color: #8ab;
-  background: #6f8f9f;
+  border: 1px solid; /* Use the border variable */
   box-shadow: inset 0 -1px 0px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
-a.big-button:hover,
-.as-link.big-button:hover {
-  background: #608090;
-}
+a.big-button.red, .as-link.big-button.red { border-color: var(--button-red-border); background: var(--button-red-bg); }
+a.big-button.gray, .as-link.big-button.gray { border-color: var(--button-gray-border); color: var(--button-gray-bg); background: var(--button-gray-bg); } /* Corrected gray button text color */
+a.big-button.blue, .as-link.big-button.blue { border-color: var(--button-blue-border); background: var(--button-blue-bg); }
+a.big-button.green, .as-link.big-button.green { border-color: var(--button-green-border); background: var(--button-green-bg); }
 
-a.big-button:active,
-.as-link.big-button:active {
+a.big-button:hover, .as-link.big-button:hover { background: var(--button-primary-hover-bg); }
+a.big-button.red:hover, .as-link.big-button.red:hover { background: var(--button-red-hover-bg); }
+a.big-button.gray:hover, .as-link.big-button.gray:hover { background: var(--button-gray-hover-bg); }
+a.big-button.blue:hover, .as-link.big-button.blue:hover { background: var(--button-blue-hover-bg); }
+a.big-button.green:hover, .as-link.big-button.green:hover { background: var(--button-green-hover-bg); }
+
+
+a.big-button:active, .as-link.big-button:active {
   box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1);
-}
-
-a.big-button.red,
-.as-link.big-button.red {
-  border-color: #ddacac;
-  background: #a65;
-}
-
-a.big-button.red:hover,
-.as-link.big-button.red:hover {
-  background: #b76;
-}
-
-a.big-button.gray,
-.as-link.big-button.gray {
-  border-color: #f4f4f4;
-  color: #ffffff;
-  background: #565656;
-}
-
-a.big-button.gray:hover,
-.as-link.big-button.gray:hover {
-  background: #676767;
-}
-
-a.big-button.blue,
-.as-link.big-button.blue {
-  border-color: #ace;
-  background: #678;
-}
-
-a.big-button.blue:hover,
-.as-link.big-button.blue:hover {
-  background: #789;
-}
-
-a.big-button.green,
-.as-link.big-button.green {
-  border-color: #ddeed0;
-  background: #696;
-}
-
-a.big-button.green:hover,
-.as-link.big-button.green:hover {
-  background: #797;
-}
-
-a:hover,
-a:focus {
-  text-decoration: underline;
 }
 
 hr {
   border: 0;
-  border-bottom: 1px dotted #CCC;
-  margin: 25px 0;
+  border-bottom: 1px dotted #CCC; /* Consider making this a variable */
+  margin: 1.5em 0; /* Use em */
 }
 
 .highlight {
@@ -609,108 +470,104 @@ hr {
 
 pre {
   overflow-x: auto;
-  padding: 10px 0;
+  padding: 0.625em 0; /* Use em */
   width: 100%;
-  line-height: 1.2em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+  line-height: 1.4; /* Consistent line height */
   box-sizing: border-box;
+  word-wrap: normal; /* Prevent wrapping in pre */
+  white-space: pre; /* Maintain whitespace */
 }
 
 code {
-  font-size: 13px;
-  color: #eee;
-  background: #313d49;
-  padding: 2px 4px 3px;
+  font-size: 0.8125em; /* Use em */
+  color: var(--code-color);
+  background: var(--code-bg);
+  padding: 0.125em 0.25em; /* Use em */
   border-radius: 2px;
-  line-height: 1.3em;
+  line-height: 1.4; /* Consistent line height */
   display: inline-block;
-  vertical-align: baseline;
-  zoom: 1;
-  display: inline;
-  vertical-align: auto;
-}
-
-img {
-  max-width: 100%;
+  vertical-align: middle; /* Align with surrounding text */
+  /* Remove inline-block/inline hack */
 }
 
 img.half {
   width: 50%;
+  height: auto; /* Ensure aspect ratio */
+  display: block; /* Treat as block element */
+  margin: 0 auto; /* Center half-width images */
 }
 
 .signoff {
-  margin-top: 30px;
+  margin-top: 1.875em; /* Use em */
 }
 
 .signoff img {
   width: 20px;
+  height: auto;
+  vertical-align: middle; /* Align with text */
 }
 
-.paging a {
-  opacity: 0.25;
-}
-
-.paging a:hover {
-  opacity: 0.7;
-  background: none;
-}
-
-.paging .left,
-.paging .right {
+/* Paging Styles - Consider if these are still needed or can be simplified */
+.paging a { opacity: 0.25; }
+.paging a:hover { opacity: 0.7; background: none; }
+.paging .left, .paging .right {
   position: fixed;
   top: 50%;
-  left: 50%;
   font-size: 60px;
+  transform: translateY(-50%); /* Center vertically */
 }
+.paging .left { left: 20px; margin-left: 0; } /* Adjusted positioning */
+.paging .right { right: 20px; margin-left: 0; } /* Adjusted positioning */
 
-.paging .left {
-  margin-left: -340px;
-}
 
-.paging .right {
-  margin-left: 320px;
-}
-
+/* Table Styles - Using variables */
 table {
-  border: 1px solid #373737;
-  margin-bottom: 20px;
+  border: 1px solid var(--table-border-color);
+  margin-bottom: 1.25em; /* Use em */
   text-align: left;
+  width: 100%; /* Ensure tables are responsive */
+  border-collapse: collapse; /* Ensure borders are collapsed */
 }
 
 th {
   font-family: 'Open Sans', sans-serif;
-  padding: 10px;
-  background: #373737;
-  color: var(--abs);
+  padding: 0.625em; /* Use em */
+  background: var(--table-header-bg);
+  color: var(--table-header-color);
+  border: 1px solid var(--table-border-color); /* Add border to th */
 }
 
 td {
-  padding: 10px 0;
-  border: 1px solid #373737;
+  padding: 0.625em; /* Use em for padding */
+  border: 1px solid var(--table-border-color);
 }
 
+/* Remove specific last-child padding if general padding is applied */
+/*
 td:not(:last-child) {
   padding-right: 10px;
 }
+*/
 
 form {
-  background: #f2f2f2;
-  padding: 20px;
+  background: #f2f2f2; /* Consider making this a variable */
+  padding: 1.25em; /* Use em */
+  border-radius: 5px; /* Added slight border radius */
 }
 
-/* https://css-tricks.com/snippets/css/ribbon/ */
+/* Ribbon Styles - Consider if this is a common component or specific */
 .ribbon {
-  font-size: 28px !important;
+  font-size: 1.75em !important; /* Use em */
   width: 40%;
   position: absolute;
-  background: #2E7BA9;
-  color: #E4F0F8;
+  background: #2E7BA9; /* Consider making this a variable */
+  color: #E4F0F8; /* Consider making this a variable */
   text-align: center;
-  padding: .5em 1em;
-  margin: 0 auto 0;
+  padding: 0.5em 1em;
+  margin: 0 auto; /* Center horizontally */
   right: 2em;
   top: 25%;
+  transform: translateY(-50%); /* Vertically center the ribbon */
 }
 
 .ribbon-content {
@@ -719,105 +576,95 @@ form {
 }
 
 .ribbon a {
-  color: #fff;
+  color: #fff; /* Ensure link color is white */
 }
 
-.ribbon:before,
-.ribbon:after {
+/* Ribbon pseudo-elements - Kept as is, they are specific to the ribbon shape */
+.ribbon:before, .ribbon:after {
   content: "";
   position: absolute;
   display: block;
   bottom: -1em;
-  border: 1.5em solid #225B7D;
+  border: 1.5em solid #225B7D; /* Consider making this a variable */
   z-index: -1;
 }
-
-.ribbon:before {
-  left: -2em;
-  border-right-width: 1.5em;
-  border-left-color: transparent;
-}
-
-.ribbon:after {
-  right: -2em;
-  border-left-width: 1.5em;
-  border-right-color: transparent;
-}
-
-.ribbon .ribbon-content:before,
-.ribbon .ribbon-content:after {
+.ribbon:before { left: -2em; border-right-width: 1.5em; border-left-color: transparent; }
+.ribbon:after { right: -2em; border-left-width: 1.5em; border-right-color: transparent; }
+.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
   content: "";
   position: absolute;
   display: block;
   border-style: solid;
-  border-color: #163A50 transparent transparent transparent;
+  border-color: #163A50 transparent transparent transparent; /* Consider making this a variable */
   bottom: -1em;
 }
+.ribbon .ribbon-content:before { left: 0; border-width: 1em 0 0 1em; }
+.ribbon .ribbon-content:after { right: 0; border-width: 1em 1em 0 0; }
 
-.ribbon .ribbon-content:before {
-  left: 0;
-  border-width: 1em 0 0 1em;
-}
-
-.ribbon .ribbon-content:after {
-  right: 0;
-  border-width: 1em 1em 0 0;
-}
 
 #downloads {
   position: absolute;
   width: 210px;
   z-index: 10;
-  bottom: -40px;
+  bottom: -40px; /* Consider adjusting based on layout */
   right: 0;
   height: 70px;
+  /* Assuming '../images/icon_download.png' exists */
   background: url('../images/icon_download.png') no-repeat 0% 90%;
 }
 
+/* Projects Section - Using Flexbox/Grid */
 .projects {
-  padding-block: 3em;
+  padding-block: 1.875em; /* Use em */
   display: grid;
-  grid-gap: 2em;
+  grid-gap: 1.25em; /* Use em for gap */
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .data-box {
   background-color: var(--databox-bg);
   box-shadow: 0px 5px 10px var(--box-shadow-color);
-  padding: 10px;
+  padding: 0.625em; /* Use em */
   border: 1px solid var(--container-border);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: start;
-  transition: transform ease 0.2s;
+  transition: transform ease 0.2s, box-shadow ease 0.2s; /* Specify transitions */
 }
 
 .data-box:hover {
-  transform: scale(1.1);
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.7);
+  transform: scale(1.05); /* Slightly less aggressive scale */
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.4); /* Adjusted shadow */
 }
 
-.projects,
-.projects td {
-  border: 0 none;
+.projects, .projects td {
+  border: 0 none; /* Remove borders within projects grid */
 }
 
 .projects td.title {
-  padding-bottom: 0px;
+  padding-bottom: 0;
 }
 
 .projects td.details {
-  padding-top: 0px;
+  padding-top: 0;
   word-wrap: break-word;
 }
 
 .projects tbody {
-  padding-top: 12px;
+  padding-top: 0.75em; /* Use em */
+  display: block; /* Ensure tbody respects padding */
 }
 
 .projects tbody:not(:last-child) {
-  border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid var(--separator-color); /* Use variable */
+  margin-bottom: 1em; /* Add space between tbody elements */
+  padding-bottom: 1em; /* Add padding below the border */
+}
+
+.projects tr {
+    display: flex; /* Use flexbox for table rows within projects */
+    flex-direction: column;
 }
 
 .projects tr:last-child {
@@ -826,110 +673,173 @@ form {
 
 .projects .proj {
   display: block;
-  font-size: 20px;
+  font-size: 1.25em; /* Use em */
   font-weight: bold;
-  word-break: break-all;
+  word-break: break-word; /* Use break-word */
+  margin-bottom: 0.25em; /* Add space below title */
 }
 
 .projects .label {
-  background: #2E7BA9;
+  background: var(--radio-btn-bg); /* Use variable */
   border-radius: 2px;
-  color: #FFF;
+  color: var(--radio-btn-color); /* Use variable */
   display: inline-block;
-  font-size: 12px;
+  font-size: 0.75em; /* Use em */
   white-space: nowrap;
-  padding-block: 0.1rem;
+  padding: 0.1em 0.5em; /* Use em */
+  margin-right: 0.5em; /* Add space between labels */
+  margin-bottom: 0.25em; /* Add space below labels */
 }
 
 .projects .label a {
-  color: #FFF;
+  color: inherit; /* Inherit color from parent label */
   display: inline-block;
-  padding: 2px 10px;
+  padding: 0; /* Remove padding if already on label */
 }
 
 .projects .tags {
-  font-size: 12px;
+  font-size: 0.75em; /* Use em */
   font-style: italic;
+  margin-top: 0.5em; /* Add space above tags */
   margin-bottom: 0;
 }
 
-.projects .label .count {
-  background: none white;
-  border: 1px solid white;
-  border-radius: 8px;
-  color: #2E7BA9;
-  display: inline-block;
-  height: 16px;
-  line-height: 16px;
-  margin: -2px -4px 0 4px;
-  text-align: center;
-  vertical-align: middle;
-  min-width: 16px;
-}
-
-.projects .label .count img {
-  background: none repeat scroll 0 0 white;
-  border: 0 none;
-  border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  display: inline-block;
-  height: 16px;
-  margin: 0;
-  padding: 0;
-  width: 16px;
-}
-
-.popular-tags,
-.tags {
+/* Popular Tags and Tags - Using Flexbox */
+.popular-tags, .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 1em 0.5em;
+  gap: 0.625em 0.3125em; /* Use em for gap */
 }
 
-ul.popular-tags li,
-ul.tags li {
+ul.popular-tags li, ul.tags li {
   list-style: none;
   padding-left: 0;
 }
 
-.popular-tags a,
-.tags a {
+.popular-tags a, .tags a {
   display: inline-flex;
-  align-content: center;
-  padding: 0.5em 0.75em;
-  font-size: 15px;
+  align-items: center; /* Vertically align content */
+  padding: 0.3125em 0.5em; /* Use em */
+  font-size: 0.9375em; /* Use em */
   border: 1px solid var(--container-border-alt, transparent);
   border-radius: 1em;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  color: var(--databox-text); /* Ensure color is set */
 }
 
 .tags a {
-  padding: 0.25em 0.5em;
-  font-size: 12px;
+  padding: 0.15em 0.3em; /* Adjusted padding for smaller tags */
+  font-size: 0.75em; /* Use em */
 }
 
-.popular-tags a:hover,
-.popular-tags a:focus,
-.popular-tags a:focus-within,
-.tags a:hover,
-.tags a:focus,
-.tags a:focus-within {
-  background-color: rgba(var(--container-rgb), 0.2);
+.popular-tags a:hover, .popular-tags a:focus, .popular-tags a:focus-within,
+.tags a:hover, .tags a:focus, .tags a:focus-within {
+  background-color: rgba(var(--databox-text-rgb), 0.2); /* Use RGB variable if available, otherwise a fixed color */
   border-color: var(--databox-text);
   color: var(--databox-text);
 }
 
 .popular-tags a span.popular-tags__frequency {
-  margin-left: 0.45em;
-  font-size: 10px;
+  margin-left: 0.4em; /* Use em */
+  font-size: 0.625em; /* Use em */
   color: var(--body-color);
 }
 
+/* Radio Button Styles - Using Flexbox and variables */
+.radio-btn-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.25em; /* Use em */
+  flex-wrap: wrap;
+  gap: 0.5em; /* Use em for gap */
+}
+
+.radio-btn {
+  background-color: var(--radio-btn-bg);
+  color: var(--radio-btn-color);
+  font-size: 0.875em; /* Use em */
+  padding: 0.25em 1em; /* Use em */
+  line-height: 1.8; /* Adjusted line height */
+  outline: none;
+  cursor: pointer;
+  min-width: 90px;
+  border-radius: 5px;
+  text-align: center; /* Center text */
+  transition: box-shadow 0.1s ease, transform 0.1s ease; /* Specify transitions */
+}
+
+.radio-btn:hover {
+  box-shadow: 3px 3px 10px var(--radio-btn-hover-shadow);
+  transform: translateY(-1px);
+}
+
+.radio-btn.radio-btn-selected {
+  background-color: var(--radio-btn-selected-bg);
+}
+
+.filters-panel {
+  margin-bottom: 1.25em; /* Use em */
+}
+
+.projects .stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; /* Vertically align items */
+  margin-top: 0.5em; /* Add space above stats */
+  font-size: 0.875em; /* Use em */
+  color: var(--body-color); /* Ensure color is readable */
+}
+
+/* Tooltip Styles */
+.tooltip {
+  visibility: hidden;
+  width: max-content;
+  background-color: var(--tooltip-bg);
+  color: var(--tooltip-color);
+  text-align: center;
+  border-radius: 6px;
+  padding: 2px 4px;
+  font-size: 0.75em; /* Use em */
+  position: absolute;
+  top: 50%; /* Position relative to vertical center */
+  right: -1em; /* Adjusted right position */
+  transform: translateY(-50%) translateX(10px); /* Center vertically and add offset */
+  z-index: 1;
+  opacity: 0; /* Start hidden */
+  transition: visibility 0s linear 0.3s, opacity 0.3s ease, transform 0.3s ease; /* Add transitions */
+  pointer-events: none; /* Allow clicking through the tooltip */
+}
+
+.fork-count {
+  display: flex;
+  margin-top: 0.625em; /* Use em */
+  height: max-content;
+  cursor: pointer;
+  position: relative;
+  align-items: center; /* Vertically align icon and text */
+  gap: 0.25em; /* Add space between icon and count */
+}
+
+.fork-count:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-50%) translateX(0); /* Slide in */
+  transition-delay: 0s; /* Show immediately on hover */
+}
+
+.fork-count-svg {
+  align-self: center;
+  fill: currentColor;
+  width: 1em; /* Set SVG size relative to font */
+  height: 1em; /* Set SVG size relative to font */
+}
+
+/* Media Queries - Refined */
 @media (max-width: 768px) {
   body {
-    padding: 0 0;
+    padding: 0; /* Ensure no horizontal padding */
   }
 
   #forkme_banner {
@@ -941,11 +851,11 @@ ul.tags li {
   }
 
   h1 {
-    font-size: 42px;
+    font-size: 2.625em; /* Adjusted font size for smaller screens */
   }
 
   .block h1 {
-    line-height: 42px;
+    line-height: 1.2; /* Adjusted line height */
     background: none;
     text-align: left;
     text-shadow: none;
@@ -953,6 +863,7 @@ ul.tags li {
 
   .block h1 .header-inside {
     padding: 0;
+    display: inline; /* Revert to inline for mobile */
   }
 
   #main-container {
@@ -962,7 +873,7 @@ ul.tags li {
   }
 
   #main-container .block {
-    padding: 20px;
+    padding: 1.25em; /* Use em */
   }
 
   table.projects td {
@@ -971,128 +882,86 @@ ul.tags li {
   }
 
   .ribbon {
-    font-size: 16px !important;
+    font-size: 1em !important; /* Use em */
     position: relative;
-    margin-bottom: 2em;
-    width: 50%;
-    right: 0;
-    top: 0;
+    margin-bottom: 1.25em; /* Use em */
+    width: auto; /* Allow width to adjust */
+    right: auto; /* Remove fixed positioning */
+    top: auto; /* Remove fixed positioning */
+    transform: none; /* Remove transform */
+    text-align: center; /* Center text */
   }
+   /* Adjust ribbon pseudo-elements for relative positioning */
+   .ribbon:before, .ribbon:after,
+   .ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+       display: none; /* Hide complex ribbon shape on small screens */
+   }
+
 
   select {
     max-width: 100%;
   }
-}
 
-.radio-btn-row {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
+  .radio-btn-row {
+      gap: 0.5em; /* Consistent gap */
+  }
 
-.radio-btn {
-  background-color: #2E7BA9;
-  color: #FFF;
-  font-size: 14px;
-  padding: 0.25rem 1rem;
-  line-height: 26px;
-  outline: none;
-  cursor: pointer;
-  min-width: 90px;
-  border-radius: 5px;
-}
+  .radio-btn {
+      min-width: auto; /* Allow buttons to shrink */
+      flex-grow: 1; /* Allow buttons to grow */
+      text-align: center; /* Center text */
+  }
 
-.radio-btn:hover {
-  box-shadow: 3px 3px 10px rgba(54, 132, 248, 0.5);
-  transition-duration: .1s;
-  transform: translateY(-1px);
-}
+  /* Mobile specific adjustments for back2Top and theme selector */
+  #back2Top, #view-mode {
+      width: 44px;
+      height: 44px;
+      line-height: 44px; /* Match height */
+      font-size: 1.5em; /* Use em */
+      bottom: 1em; /* Use em */
+      right: 1em; /* Use em */
+      margin-right: 0; /* Remove margin */
+      border-radius: 50%;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      transform: none; /* Remove rotation */
+  }
 
-.radio-btn.radio-btn-selected {
-  background-color: #12425e;
-}
-
-.filters-panel {
-  margin-bottom: 20px;
-}
-
-.projects .stats {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.tooltip {
-  visibility: hidden;
-  width: max-content;
-  background-color: grey;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 2px 4px;
-  font-size: x-small;
-
-  /* Position the tooltip */
-  position: absolute;
-  top: 13px;
-  right: -17px;
-  z-index: 1;
-}
-
-.fork-count {
-  display: flex;
-  margin-top: 10px;
-  height: max-content;
-  cursor: pointer;
-  position: relative;
-}
-
-.fork-count:hover .tooltip {
-  visibility: visible;
-}
-
-
-.fork-count-svg {
-  align-self: center;
-  fill: currentColor;
-}
-
-@media screen and (max-width : 670px) {
   #view-mode {
-    position: fixed;
-    width: 44px;
-    height: 44px;
-    z-index: 999;
-    margin-right: 10px;
-    right: 0;
-    top: 18px;
+      top: 1em; /* Use em */
+      bottom: auto; /* Remove bottom positioning */
   }
 
-  #back2Top {
-    width: 44px;
-    height: 44px;
-    overflow: hidden;
-    z-index: 999;
-    display: none;
-    cursor: pointer;
-    -moz-transform: rotate(270deg);
-    -webkit-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
-    transform: rotate(270deg);
-    position: fixed;
-    right: 0;
-    bottom: 18px;
-    margin-right: 10px;
-    border-radius: 50%;
-    background-color: #DDD;
-    color: #555;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    transition: 0.3s;
+  .paging .left, .paging .right {
+    font-size: 3em; /* Use em */
+    left: 10px; /* Adjusted positioning */
+    right: 10px; /* Adjusted positioning */
+    transform: translateY(-50%); /* Keep vertical centering */
   }
+  .paging .left { margin-left: 0; }
+  .paging .right { margin-left: 0; }
+}
+
+/* Specific breakpoint for smaller mobile adjustments */
+@media screen and (max-width : 480px) {
+    h1 {
+        font-size: 2em; /* Smaller H1 on very small screens */
+    }
+    h2 {
+        font-size: 1.5em; /* Smaller H2 */
+    }
+    h3 {
+        font-size: 1.2em; /* Smaller H3 */
+    }
+     .radio-btn {
+        padding: 0.25em 0.5em; /* Smaller padding */
+     }
+     .popular-tags a, .tags a {
+         font-size: 0.875em; /* Smaller tag text */
+         padding: 0.2em 0.4em; /* Smaller tag padding */
+     }
+     .tooltip {
+         font-size: 0.6em; /* Smaller tooltip text */
+     }
 }
