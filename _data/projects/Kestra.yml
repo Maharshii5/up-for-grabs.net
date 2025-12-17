@@ -13,6 +13,6 @@ upforgrabs:
   name: good first issue
   link: https://github.com/kestra-io/kestra/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
 stats:
-  issue-count: 39
-  last-updated: '2025-12-15T13:00:38Z'
-  fork-count: 2367
+  issue-count: 36
+  last-updated: '2025-12-17T06:54:12Z'
+  fork-count: 2371
